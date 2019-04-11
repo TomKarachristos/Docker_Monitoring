@@ -9,7 +9,9 @@ var server = require('./core/app/server.init')
 var application = require('./core/app/app.init')
 var docker = require('./core/app/docker.init')
 
-const container = createContainer();
+const container = createContainer({
+  injectionMode: awilix.InjectionMode.PROXY
+});
 
 container
   .register({
