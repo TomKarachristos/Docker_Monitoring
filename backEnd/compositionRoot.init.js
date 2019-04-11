@@ -34,6 +34,7 @@ container
   })*/
   .register({
     containerMiddleware: asValue(scopePerRequest(container)), // thats nice!
+  // put here socket io
     errorHandler: asValue(errorHandler)
   });
 
