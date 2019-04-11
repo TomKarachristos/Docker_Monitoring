@@ -8,12 +8,8 @@ var errorHandler = require('./core/app/errorHandler.init')
 var server = require('./core/app/server.init')
 var application = require('./core/app/app.init')
 var docker = require('./core/app/docker.init')
-console.log("compositionRoot");
-
 
 const container = createContainer();
-
-console.log("compositionRoot2");
 
 container
   .register({
