@@ -1,0 +1,7 @@
+{
+    "docker_ip": "192.168.99.100",
+    "docker_protocol": "https",
+    "docker_port": 2376,
+    "docker_pem_path": "C:/Users/karac/.docker/machine/machines/default/",
+    "nodejs_port": 5858
+}

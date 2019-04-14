@@ -1,7 +1,3 @@
-<mat-form-field>
-  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-</mat-form-field>
-
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
   <ng-container matColumnDef="name">
@@ -11,17 +7,17 @@
 
   <ng-container matColumnDef="ram">
     <th mat-header-cell *matHeaderCellDef> ram </th>
-    <td mat-cell *matCellDef="let element"> {{element.ram}} </td>
+    <td mat-cell *matCellDef="let element"> {{element.ram}} % </td>
   </ng-container>
 
     <ng-container matColumnDef="cpu">
     <th mat-header-cell *matHeaderCellDef> cpu </th>
-    <td mat-cell *matCellDef="let element"> {{element.cpu}} </td>
+    <td mat-cell *matCellDef="let element"> {{element.cpu}} % </td>
   </ng-container>
 
-    <ng-container matColumnDef="io">
-      <th mat-header-cell *matHeaderCellDef> io </th>
-      <td mat-cell *matCellDef="let element"> {{element.io}} </td>
+    <ng-container matColumnDef="State">
+      <th mat-header-cell *matHeaderCellDef> state </th>
+      <td mat-cell *matCellDef="let element"> {{element.State}} </td>
     </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

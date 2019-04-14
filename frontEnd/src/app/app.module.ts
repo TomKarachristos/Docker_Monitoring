@@ -6,34 +6,40 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgHttpLoaderModule } from 'ng-http-loader';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LayoutComponent } from './layout/layout.component';
-import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material-module';
 import { ListImagesComponent } from './list-images/list-images.component';
 import { ListContainersComponent } from './list-containers/list-containers.component';
 import { ContainersService } from './list-containers/containers.service';
 import { ImagesService } from './list-images/images.service';
+import { FileUploadModule } from 'ng2-file-upload';
 
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
- 
-const config: SocketIoConfig = { url: '', options: {
-  reconnection: true,
-  reconnectionAttempts: 2,
-  reconnectionDelay: 1000
-} };
+
+//TODO PUT THIS TO A CONFIG
+const config: SocketIoConfig = {
+  url: 'localhost:5858', options: {
+    reconnection: true,
+    reconnectionAttempts: 3,
+    reconnectionDelay: 5000,
+    
+  }
+};
 
 @NgModule({
-  imports:      [ 
+  imports: [
     BrowserModule,
-    FormsModule, 
+    FormsModule,
     FlexLayoutModule,
-    HttpClientModule, 
-    NgHttpLoaderModule.forRoot(), 
+    HttpClientModule,
+    NgHttpLoaderModule.forRoot(),
     BrowserAnimationsModule,
     MaterialModule,
-     SocketIoModule.forRoot(config)
+    SocketIoModule.forRoot(config),
+    FileUploadModule,
   ],
-  declarations: [ LayoutComponent, DashboardComponent, ListImagesComponent, ListContainersComponent ], 
-  bootstrap:    [ LayoutComponent ], 
-  providers: [ContainersService, ImagesService] 
-}) 
+  declarations: [LayoutComponent, DashboardComponent, ListImagesComponent, ListContainersComponent],
+  bootstrap: [LayoutComponent],
+  providers: [ContainersService, ImagesService]
+})
 export class AppModule { }

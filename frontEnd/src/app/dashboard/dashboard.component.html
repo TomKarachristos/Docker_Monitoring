@@ -12,10 +12,14 @@
             <mat-card-title>Images</mat-card-title>
           </mat-card-header>
           <mat-card-content>
+            <app-list-images></app-list-images>
           </mat-card-content>
           <mat-card-actions>
-            <button  mat-raised-button color="primary">
-              Build From Dockerfile
+
+            <!-- TODO MAKE A COMPONENT -->
+            <input type="file" name="tar" ng2FileSelect [uploader]="uploader"  />
+            <button (click)="uploader.uploadAll()"  mat-raised-button color="primary">
+             sentFile
             </button>
           </mat-card-actions>
       </mat-card>
@@ -28,7 +32,8 @@
             <app-list-containers></app-list-containers>
           </mat-card-content> 
           <mat-card-actions style="margin-top: auto">
-            <button  mat-raised-button color="primary">
+            <!-- TODO MAKE A COMPONENT -->
+            <button (click)="CreateLogs()"  mat-raised-button color="primary">
               Consolidate the logs
             </button>
           </mat-card-actions>
