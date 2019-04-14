@@ -1,6 +1,7 @@
 import { from, Observable } from 'rxjs';
 import {Subject} from 'rxjs/Subject';
 import { GeneratedKeyedCollection } from '../../utils/GeneratedKeyedCollection';
+import { take } from 'rxjs/operators';
 
 class ContainersDockerService { 
   private docker;
@@ -14,7 +15,9 @@ class ContainersDockerService {
 
   constructor({docker}) {
     this.docker = docker;
-    this.dockerContainers =  new GeneratedKeyedCollection(this.docker.getContainer.bind(this.docker));
+    this.dockerContainers =  new GeneratedKeyedCollection(
+      this.docker.getContainer.bind(this.docker)
+    );
   }
 
   getList(): Observable<any> {
@@ -48,7 +51,7 @@ class ContainersDockerService {
   }
 
   public getLogsOfAllContainer(){
-    this.getList().subscribe( (containers)=>{
+    this.getList().pipe(take(1)).subscribe( (containers)=>{
       let allLogs = "";
       containers.forEach(element => {
         this.dockerContainers.AddAndGet(element.Id).logs({follow:false}, 
@@ -60,7 +63,7 @@ class ContainersDockerService {
     });
   }
 
-  /// Is not belong here. REFACTORY THIS
+  /// Is not belong here. REFACTORY ME
   private WriteLogsToDisk(logs: String) {
     var fs = require('fs');
     var stream = fs.createWriteStream("ConsolidateLogs.txt");
