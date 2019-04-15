@@ -11,7 +11,7 @@ import { ImagesService } from '../list-images/images.service';
 export class DashboardComponent implements OnInit {
     public uploader: FileUploader = new FileUploader(
     {
-      url : 'http://192.168.1.101:5858/upload',
+      url : 'localhost:5858/upload',
       itemAlias: 'tar'
     }  // TOODO A CONFIG SERVER WITH VALUES 
   );
