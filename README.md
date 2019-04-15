@@ -36,8 +36,6 @@ Shared type μέσω interface για frontend και backend.
 Επίσης ότι ο client δεν πρέπει να ρωτάει ένα ένα τα container με τα Ids για την κατάσταση τους αλλα ενα api που βρίσκει μόνο του όλα τα containers  και να  απαντάει με stream(subject) .(Αν και επιλογή για ενα υποστηριζεται απο το service).
 
 Κανω unsubscribe στο disconnect για να μην έχουμε leak memory λόγο των observer με χρήση subscription και take(1).
-Δεν βρήκα λόγο για cache κάτι.
-
 
 
 # frontend
