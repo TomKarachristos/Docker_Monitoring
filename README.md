@@ -31,12 +31,15 @@ Shared type μέσω interface για frontend και backend.
 
 Στην συγκεκριμένη υλοποιήση τα services έχουν την αρμοδιότητα να επικοινωνήσουν με το docker και τα route να επικοινωνήσουμε με τον client.
 
-Αποφάσισα να μετατρέψω σε subject(rxjs) τα stream καθως και ότι θέλει live ενημέρωση. 
+Αποφάσισα να μετατρέψω σε subject(rxjs) τα stream καθως και ότι θέλει live ενημέρωση και να τα βάλω σε socket. Χρησιμοποιήσα σχεδον ολοκληρωτικά socket, παρόλου που σε κάποια σημεια δεν ήταν αναγκαίο. Θεωρώ ότι ήταν too much να έχω και και express και socket σε ένα τόσο μικρο Project.
+
 
 Επίσης ότι ο client δεν πρέπει να ρωτάει ένα ένα τα container με τα Ids για την κατάσταση τους αλλα ενα api που βρίσκει μόνο του όλα τα containers  και να του απαντάω με stream(subject) .(Αν και επιλογή για ενα υποστηριζεται απο το service).
 
 Κανω unsubscribe στο disconnect για να μην έχουμε leak memory λόγο των observer με χρήση subscription και take(1).
 Δεν βρήκα λόγο για cache κάτι.
+
+
 
 # frontend
 
