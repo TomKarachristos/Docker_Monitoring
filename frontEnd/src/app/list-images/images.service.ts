@@ -12,6 +12,7 @@ export interface ImagesTable {
 export class ImagesService {
 
   constructor(private socket: Socket) {
+    // λιγο hackia επρεπε να είναι method
     this.socket.emit(SocketTypes.ImagesList);
   }
 
