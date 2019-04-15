@@ -24,11 +24,17 @@ Shared type μέσω interface για frontend και backend.
 Χρήση composition Root "pattern" με awilix dependency injection. Χρήση convict και dotenv για config. 
 Στον φάκελο core, έχω την βασική αρχικοποίηση για: docker,config, express route, socket io, logger(log4js).
 Χρήση Multer για το upload αρχειο.
+
 Στα utilits έχω μια class που φτιάχνει ένα dictionary όπου τα values τους είναι generate απο τα key μέσω τις callback που έδωσα στον constructor.
+
 Η υπόλοιπη αρχιτεκντονική (features) χωρίζεται σε δύο Layer: service και route(ή controller). Οπου διαχωρίζω τα route για το express και για το socket io.
+
 Στην συγκεκριμένη υλοποιήση τα services έχουν την αρμοδιότητα να επικοινωνήσουν με το docker και τα route να επικοινωνήσουμε με τον client.
+
 Αποφάσισα να μετατρέψω σε subject(rxjs) τα stream καθως και ότι θέλει live ενημέρωση. 
+
 Επίσης ότι ο client δεν πρέπει να ρωτάει ένα ένα τα container με τα Ids για την κατάσταση τους αλλα ενα api που βρίσκει μόνο του όλα τα containers  και να του απαντάω με stream(subject) .(Αν και επιλογή για ενα υποστηριζεται απο το service).
+
 Κανω unsubscribe στο disconnect για να μην έχουμε leak memory λόγο των observer κάποιες φορές με χρήση subscription και take(1).
 Δεν βρήκα λόγο για cache κάτι.
 
@@ -37,7 +43,10 @@ Shared type μέσω interface για frontend και backend.
 angular material/lodash/flex-layout/ng2-file-upload/ngx-socket-io
 
 Την δομη την κράτησα πολυ απλή, είναι μια σελίδα μονο και σκεφτηκά ότι θα είναι over-engineer να βάλω πολλά. 
-Ξανα δύο layer service και components. Ιδια νοοτροπία.  Εκανα κάποια διαχείριση για την μνήμη αλλα τυπικά καθως τα components δεν διαγράφονται ποτε. Χρησιμοποίησα class viewmodel για να κάνω κάποιες μετατροπές. Σε κάποια σημεία ίσως μπορούσε να μπει automaper(overenginerring again).
+
+Ξανα δύο layer service και components. Ιδια νοοτροπία.  Εκανα κάποια διαχείριση για την μνήμη αλλα τυπικά καθως τα components δεν διαγράφονται ποτε.
+
+Χρησιμοποίησα class viewmodel για να κάνω κάποιες μετατροπές. Σε κάποια σημεία ίσως μπορούσε να μπει automaper(overenginerring again).
 
 Δεν πρόλαβα να δω το error handler. Θα το έκανα μεσω interceptor για Http αλλα και event error για socket io και χρήση της error κατάστασης στους Observer.
   
