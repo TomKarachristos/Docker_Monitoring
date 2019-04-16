@@ -2,13 +2,30 @@
 
 # Πως να τρέξεις το Project:
 
-1) Στο backEnd/src/config/ πρέπει να μπούν οι ρυθμίσεις για να συνδεθεί στο docker. Θέλει και τον φάκελο που είναι τα Pem καθώς είανι https.
+1)Τρέχουμε το docker quickstart terminal, φαντάζομαι πως στα mac/linux μπορεί να έχει άλλη έκδοση. Πιστευώ ότι αυτο δεν επηρεάζει κάπου.
 
-2) στο backend -> terminal -> npm start
+![image](https://user-images.githubusercontent.com/11191440/56229712-3b193200-6083-11e9-979e-60a1d2373d70.png)
 
-3) στο frontend -> terminal -> ng serve --open . κάνει connection στο localhost:5858. Το 5858 το έχω default στον backend.
+2) Αφού ξεκινήσει βρίσκουμε το ip και το port με την εντολη docker-machine ls σε οποίο terminal έχουμε πρόσβαση στο docker. Σημειωμένα με κιτρινο απο κάτω(Προκαθορισμένα μπαίνει στο enviroment οπότε απο ένα απλο terminal θα έχουμε λογικα πρόσβαση.)
 
-4) ready to go.
+![image](https://user-images.githubusercontent.com/11191440/56229896-a6fb9a80-6083-11e9-8873-0f553b5b96a5.png)
+
+3)Μετα πρέπει να βρούμε που είναι αποθηκευμένα τα pem. Το documentation γράφει:
+
+As a point of information, the config.json, certificates, and other data related to each virtual machine created by docker-machine is stored in ~/.docker/machine/machines/ on Mac and Linux and in ~\.docker\machine\machines\ on Windows. 
+
+Οπότε θα είναι αποθηκευμένα στον αντίστοιχο φάκελου του χρήστη που κάνατε έγινε install. Απο κάτω είναι ο δικό μου φάκελο
+
+![image](https://user-images.githubusercontent.com/11191440/56230332-b62f1800-6084-11e9-84b6-0e63e74d62b9.png)
+
+Το documentation γράφει σε άλλο σημείο ότι είναι μεσα στον $HOME/.docker/machine/machines/default.Δείτε και αυτο αν δεν το βρείτε.
+
+3)Μετα βάζουμε τις ρυθμίσεις που κάναμε collect στο config: 
+![image](https://user-images.githubusercontent.com/11191440/56230630-61d86800-6085-11e9-8a7e-33c75a74bcbe.png)
+
+4)Στην συνέχεια ο πιο εύκολος τρόπος είναι να φτιάξουμε δυο terminal και να τρέξουμε τις απο κάτω τιμές στους κατάλληλους φάκελους. Πρώτα για τον backend Και μετα για το frontend. Το project θα ανοίξει θεωρητικά μόνο του εκείνη την στιγμη. 
+
+![image](https://user-images.githubusercontent.com/11191440/56231094-4d489f80-6086-11e9-972d-97d81a66ff73.png)
 
 # General
 
